@@ -21,4 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Category
-Route::get('/all/category','CategoryController@index')->name('All/Store');
+Route::get('/all/category','CategoryController@AllCat')->name('All.Store');
+// Category Add Route
+Route::post('/Add/Category','CategoryController@AddCat')->name('store.add');
+
