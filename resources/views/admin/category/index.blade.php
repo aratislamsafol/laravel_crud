@@ -19,9 +19,6 @@
                     @endif
                     <table class="table">
                         <thead>
-
-
-
                           <tr>
                             <th scope="col">SL No</th>
                             <th scope="col">User Id</th>
@@ -47,7 +44,7 @@
                                 <a href="" class="btn btn-success btn-sm">View</a>
                                 <a href="{{url('Category/item/edit/'.$categories->id)}}" class="btn btn-primary btn-sm"
                                     data-bs-toggle="modal" data-bs-target="#category_edit">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{url('Category/delete/'.$categories->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                           </tr>
                           @endforeach
@@ -83,6 +80,53 @@
                 </div>
 
             </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <b>Trush List</b>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">SL No</th>
+                            <th scope="col">User Id</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($trust_cat as $categories)
+                          <tr>
+                            <th scope="row">{{$category->firstItem()+$loop->index}}</th>
+                            <td>{{$categories->user_id}}</td>
+                            <td>{{$categories->user_join->name}}</td>
+                            <td>{{$categories->categories_name}}</td>
+                            @if ($categories==Null)
+                            <span>No Time Set</span>
+                            @else
+                            <td>{{$categories->created_at->diffForHumans()}}</td>
+                            @endif
+                            <td>
+                                <a href="{{url('Category/restore/'.$categories->id)}}" class="btn btn-primary btn-sm"
+                                    data-bs-toggle="modal" data-bs-target="#category_edit">Restore</a>
+                                <a href="{{url('Category/p_delete/'.$categories->id)}}" class="btn btn-danger btn-sm">P-Delete</a>
+                            </td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+
+                    </table>
+                    {{ $trust_cat->links() }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
         </div>
     </div>
 </div>

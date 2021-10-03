@@ -29,4 +29,11 @@ Route::post('/Add/Category','CategoryController@AddCat')->name('store.add');
 Route::get('/Category/item/edit/{id}','CategoryController@EditCat');
 // Category Post Data
 Route::post('/Category/item/edit/{id}','CategoryController@UpdateCat');
+// Category Item Delete
+Route::get('/Category/delete/{id}','CategoryController@SoftDelete');
+// Category Item Restored
+Route::get('/Category/restore/{id}','CategoryController@Restore');
+// Category Item Permanently Delete
+Route::get('Category/p_delete/{id}','CategoryController@P_Delete');
+// Cate
 
