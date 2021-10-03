@@ -29,5 +29,19 @@ class CategoryController extends Controller
             'user_id'=>Auth::user()->id,
         ]);
         return Redirect()->back()->with('Success','Category Inserted');
-        }
+    }
+    public function EditCat($id){
+        $category_id=Category::find($id);
+        return view('admin.category.edit',compact('category_id'));
+    }
+
+    public function UpdateCat(Request $request ,$id){
+        $update=Category::find($id)->update([
+            'categories_name'=>$request->category_name,
+            'user_id'=>Auth::user()->id,
+            'updated_at'=>Carbon::now()
+        ]);
+
+        return Redirect()->route('All.Store')->with('success','Category Updated');
+    }
 }

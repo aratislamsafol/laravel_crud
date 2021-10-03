@@ -28,6 +28,7 @@
                             <th scope="col">User Name</th>
                             <th scope="col">Category Name</th>
                             <th scope="col">Created At</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -42,6 +43,12 @@
                             @else
                             <td>{{$categories->created_at->diffForHumans()}}</td>
                             @endif
+                            <td>
+                                <a href="" class="btn btn-success btn-sm">View</a>
+                                <a href="{{url('Category/item/edit/'.$categories->id)}}" class="btn btn-primary btn-sm"
+                                    data-bs-toggle="modal" data-bs-target="#category_edit">Edit</a>
+                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
                           </tr>
                           @endforeach
                         </tbody>

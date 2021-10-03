@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -24,4 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/all/category','CategoryController@AllCat')->name('All.Store');
 // Category Add Route
 Route::post('/Add/Category','CategoryController@AddCat')->name('store.add');
+// Category Update Catch Data
+Route::get('/Category/item/edit/{id}','CategoryController@EditCat');
+// Category Post Data
+Route::post('/Category/item/edit/{id}','CategoryController@UpdateCat');
 
