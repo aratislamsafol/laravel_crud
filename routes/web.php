@@ -35,5 +35,11 @@ Route::get('/Category/delete/{id}','CategoryController@SoftDelete');
 Route::get('/Category/restore/{id}','CategoryController@Restore');
 // Category Item Permanently Delete
 Route::get('Category/p_delete/{id}','CategoryController@P_Delete');
-// Cate
-
+//Brand
+Route::get('Brand/All_Brand','BrandController@index')->name('All.Brand');
+// brand Add Route
+Route::post('/Add/Brand','BrandController@AddBrand')->name('Brand.Add');
+// Brand Update Catch Data
+Route::get('/Brand/item/edit/{id}','BrandController@EditBrand');
+// Brand Post New Data
+Route::post();
